@@ -6,9 +6,6 @@
         <meta name="csrf-token" content="{{csrf_token()}}">
         <title>{{ config('app.name' , 'Mueble y Confort E-Commerce Web Site') }}</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
         <!-- Styles -->
         <link href="{{ asset('css/app.css')}}" rel="stylesheet">
 

@@ -1,5 +1,5 @@
-<script src="{{asset('js/jquery-3.5.1.min.js')}}"></script>
-<script src="{{asset('js/bootstrap.min.js')}}"></script>
+<script src="{{asset('js/jquery-3.6.0.min.js')}}"></script>
+<script src="{{asset('js/bootstrap-4.5.3.min.js')}}"></script>
 <script src="{{asset('js/brands.min.js')}}"></script>
 <script src="{{asset('js/fontawesome.min.js')}}"></script>
 
