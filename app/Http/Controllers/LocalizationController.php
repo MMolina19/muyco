@@ -17,4 +17,5 @@ class LocalizationController extends Controller {
         $locale = App::getLocale();
         return $locale;
     }
+
 }
