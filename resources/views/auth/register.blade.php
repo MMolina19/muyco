@@ -1,5 +1,7 @@
 @extends('main')
 
+@section('title',__('register.title'))
+
 @section('content')
 <div class="container mt-5 mb-5">
     <div class="row d-flex align-items-center justify-content-center">

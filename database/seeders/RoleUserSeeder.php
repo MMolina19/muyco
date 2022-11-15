@@ -18,9 +18,15 @@ class RoleUserSeeder extends Seeder {
         $roles = Role::all();
 
         User::all()->each(function($user) use ($roles) {
-            $user->roles()->attach(
-                $roles->random(1)->pluck('id')
-            );
+            if($user->username=='mmolina' || $user->username=='gmolinari' ||
+                $user->username=='mrozas' || $user->username=='rmolina') {
+                    $user->roles()->attach(1);
+            }
+            else {
+                $user->roles()->attach(
+                    $roles->random(1)->pluck('id')
+                );
+            }
         });
 
     }

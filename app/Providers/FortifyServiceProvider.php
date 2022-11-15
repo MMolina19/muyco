@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Fortify\Fortify;
 use App\Models\User;
+use App\Models\Navbar;
 use Illuminate\Support\Facades\Hash;
 
 class FortifyServiceProvider extends ServiceProvider {
@@ -44,11 +45,11 @@ class FortifyServiceProvider extends ServiceProvider {
         });
 
         Fortify::registerView(function() {
-            return view('auth.register');
+            return view('auth.register')->with(['navbar'=>Navbar::all()]);
         });
 
         Fortify::loginView(function() {
-            return view('auth.login');
+            return view('auth.login')->with(['navbar'=>Navbar::all()]);
         });
 
         Fortify::authenticateUsing(function (Request $request) {
@@ -59,6 +60,7 @@ class FortifyServiceProvider extends ServiceProvider {
             if ($user && Hash::check($request->password,$user->password)) {
                 return $user;
             }
+            return null;
         });
     }
 }

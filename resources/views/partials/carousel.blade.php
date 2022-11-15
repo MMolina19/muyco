@@ -1,32 +1,31 @@
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
+@if ($config!=null)
 
+<section style="width:100%;">
+    <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            @foreach ($config['slides'] as $slideCounter=>$slide)
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="{{$slideCounter}}"
+                class="{{$slide['class']}}" aria-label="Slide {{$slideCounter}}"></button>
+            @endforeach
+        </div>
+        <div class="carousel-inner ">
+            @foreach ($config['slides']  as $slide)
+            <div class="carousel-item {{$slide['class']}}">
+                <img class="bd-placeholder-img" width="100%" height="100%"
+                    src="{{asset($slide['src'])}}" alt="{{$slide['alt']}}" aria-placeholder="{{$slide['alt']}}" />
+            </div>
+            @endforeach
 
-
-      <div class="carousel-item active">
-            <img src="{{asset('images/headers/muyco-logo_nov_1920x720.jpg')}}" class="d-block w-100" alt="Welcome to Mueble y Confort">
-      </div>
-      <div class="carousel-item">
-        <img src="{{asset('images/headers/sillas_03_1920x720_mercado_libre.jpg')}}" class="d-block w-100" alt="Sillas">
-      </div>
-      <div class="carousel-item">
-        <img src="{{asset('images/headers/sillas_02_1920x720_mercado_libre.jpg')}}" class="d-block w-100" alt="Silas">
-      </div>
-      <div class="carousel-item">
-        <img src="{{asset('images/headers/mesas_02_1920x720_mercado_libre.jpg')}}" class="d-block w-100" alt="Mesas">
-      </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+        </button>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
+</section>
+
+@endif

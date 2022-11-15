@@ -4,24 +4,31 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{csrf_token()}}">
-        <title>{{ config('app.name' , 'Mueble y Confort E-Commerce Web Site') }}</title>
-
-        <!-- Styles -->
-        <link href="{{ asset('css/app.css')}}" rel="stylesheet">
-
-        <!-- Js -->
-        <!-- <script src="{{ asset('js/app.js')}}" defer></script> -->
-
+        <title>{{config('app.name') }} - @yield('title')</title>
+        <link href="{{URL::asset('css/app.css')}}" rel="stylesheet">
     </head>
     <body>
+
+        @isset($navbar)
+        @include('partials.left-navbar')
+        @endisset
+
         @include('partials.navbar')
 
-        <main class="container">
-            @include('partials.alerts')
-            @yield('content')
-        </main>
+        @include('partials.main-button-nav-toggler')
 
-        @include('partials.js-scripts')
+        <div id="page" class="container-xl p-5">
+            <div class="row gx-5">
+                <div class="col min-vh-100 p-4">
+                    @include('partials.alerts')
+                    @yield('content')
+                </div>
+            </div>
+        </div>
+
+        @include('partials.footer')
+
+        @include('partials.javascripts')
 
     </body>
 </html>

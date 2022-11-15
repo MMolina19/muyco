@@ -1,11 +1,13 @@
 @extends('main')
 
+@section('titulo', __('start.title'))
+
 @section('content')
-<div class="container">
-    @auth
-    <h1>{{__('messages.welcome_part_1')}}<strong>{{ Auth::user()->username }}</strong>{{__('messages.welcome_part_2')}}</h1>
-    @else
-    <h1>{{__('messages.welcome_part_1')}}{{__('messages.welcome_part_2')}}</h1>
-    @endif
-    @endsection
-</div>
+
+@include('partials.carousel')
+
+@include('partials.thumbnails-album')
+
+@include('partials.two-boxes')
+
+@endsection

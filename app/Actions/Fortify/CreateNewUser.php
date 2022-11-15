@@ -20,8 +20,8 @@ class CreateNewUser implements CreatesNewUsers {
      */
     public function create(array $input) {
         Validator::make($input, [
-            'name' => ['required', 'string', 'max:255'],
             'username' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
             'email' => [
                 'required',
                 'string',
@@ -29,19 +29,20 @@ class CreateNewUser implements CreatesNewUsers {
                 'max:255',
                 Rule::unique(User::class),
             ],
-            'password' => $this->passwordRules(),
+            'password' => $this->passwordRules(), //passwordRules verifica password contra paswword_confirmation
+            //'password_confirmation' => $this->passwordRules(),
         ])->validate();
 
         $user = User::create([
             'name' => $input['name'],
             'username'  => $input['username'],
             'email' => $input['email'],
-            'phone' =>  null,
-            'password' => $input['password'],
+            'password' => Hash::make($input['password']),
+            //'password_confirmation' => $input['password_confirmation'],
             'active'    =>  1,
         ]);
 
-        $role = Role::where(['name' => 'Client'])->first();
+        $role = Role::where(['name' => 'Customer'])->first();
         $user->roles()->attach($role->id);
 
         return $user;

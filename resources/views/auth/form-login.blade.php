@@ -42,14 +42,24 @@
 -->
 
 <div class="form-input row mb-4">
-    <div class="col-md-8 offset-md-4">
-        <button type="submit" class="btn btn-primary mt-4 signup">
-            {{ __('messages.login') }}
+    <div class="contenedor-de-controles">
+
+        <button type="submit" class="btn btn-primary mt-4 signup border border-white">
+            <!--<span class="bi bi-person-circle fs-3 my-3 ml-3 mr-1"> -->
+            {{ __('messages.login') }}</span>
         </button>
 
-        <a class="btn btn-link" href="{{ url('forgot_password/') }}">
-            {{ __('auth.forgot') }}
-        </a>
+        <button class="btn btn-light mt-4 signup border border-primary" href="{{ url(__('urls.home')) }}"
+            onclick="event.preventDefault();window.location.href='{{url(__('urls.home'))}}';">
+            <!--<span class="bi bi-caret-left-fill fs-3 my-3 ml-3 mr-1">-->
+            {{ __('auth.go-back') }}</span>
+        </button>
+
+        <button class="btn btn-black mt-4 text-light signup border border-primary" href="{{ url('forgot_password/') }}">
+            <!--<span class="bi bi-question-circle fs-3 my-3 ml-3 mr-1">-->
+            {{ __('auth.forgot') }}</span>
+        </button>
+
     </div>
 </div>
 

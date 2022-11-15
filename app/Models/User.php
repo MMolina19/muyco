@@ -24,7 +24,7 @@ class User extends Authenticatable {
         'password',
         'active',
     ];
-
+    protected $primaryKey = 'id';
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -44,9 +44,9 @@ class User extends Authenticatable {
         'email_verified_at' => 'datetime',
     ];
 
-    public function setPasswordAttribute($password){
-        $this->attributes['password'] = Hash::make($password);
-    }
+    //public function setPasswordAttribute($password){
+    //    $this->attributes['password'] = Hash::make($password);
+    //}
 
     public function save(array $options = array()) {
         if(isset($this->remember_token))
@@ -64,7 +64,7 @@ class User extends Authenticatable {
      * @param string $role
      * @return bool
      */
-    public function hasAnyRole(string $role){
+    public function hasAnyRole(string $role) {
         return null !==  $this->roles()->where('name', $role)->first();
         //this return true if role exist or null
     }
@@ -74,8 +74,23 @@ class User extends Authenticatable {
      * @param array $role
      * @return bool
      */
-    public function hasAnyRoles(array $role){
+    public function hasAnyRoles(array $role) {
         return null !==  $this->roles()->whereIn('name',$role)->first();
         //this return true if role exist or null
     }
+
+
+    public function isAdmin( ){
+        return $this->is_admin;
+    }
+
+    public function isStaff() {
+        return $this->is_staff;
+    }
+
+    public function authorizeRoles($roles) {
+        abort_unless($this->hasAnyRole($roles), 404);
+        return true;
+    }
+
 }

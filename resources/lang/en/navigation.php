@@ -13,14 +13,23 @@ return [
 |
 */
 
+'admin' =>  'Administration',
 'home' => 'Home',
+'shop' => 'Shop',
 'users' => 'Users',
+'my-profile' => 'My Profile',
 'products' => 'Products',
+'collections' => 'Collections',
 'contact'  =>  'Contact',
 'about'  =>  'About',
-'market_shops'  =>  'Market Shops',
+'market-shops'  =>  'Market Shops',
 'dashboard' =>  'Dashboard',
+'orders'    =>  'Orders',
+'customers'    =>  'Customers',
 'search'  =>  'Search',
+'woods' =>  'Woods',
+'upholstered'   =>  'Upholstered',
+'designs-types'   =>  'Designs Types',
 'login'  =>  'Login',
 'log-in'  =>  'Enter',
 'logout'    =>  'Logout',
@@ -31,4 +40,5 @@ return [
 'language'  =>  'Language',
 'show'  =>  'Show',
 'create'  =>  'Create',
+
 ];

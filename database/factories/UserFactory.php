@@ -24,8 +24,8 @@ class UserFactory extends Factory {
         return [
             'name' => $this->faker->name(),
             'username' => $this->faker->username(),
-            'phone' => $this->faker->phoneNumber(),
-            'phone_verified_at' => Carbon::today()->subDays(rand(0, 365)),
+            //'phone' => $this->faker->phoneNumber(),
+            //'phone_verified_at' => Carbon::today()->subDays(rand(0, 365)),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => Carbon::today()->subWeeks(rand(0, 365)),
             'verification_code' => null,

@@ -1,0 +1,2 @@
+[Thu Mar 10 21:54:43.069784 2022] [authz_core:error] [pid 14080:tid 1876] [client 127.0.0.1:52209] AH01630: client denied by server configuration: C:/dev/laravel/muyco/
+[Thu Mar 10 21:54:43.213401 2022] [authz_core:error] [pid 14080:tid 1876] [client 127.0.0.1:52209] AH01630: client denied by server configuration: C:/dev/laravel/muyco/favicon.ico, referer: http://muyco.admin/
